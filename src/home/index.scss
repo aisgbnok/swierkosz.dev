@@ -1,0 +1,44 @@
+@use "../styles/swierkosz";
+
+@use "@material/theme" with (
+  $primary: swierkosz.$primary,
+  $secondary: swierkosz.$secondary,
+  $background: swierkosz.$background,
+  $surface: swierkosz.$surface,
+  $on-primary: swierkosz.$on-primary,
+  $on-secondary: swierkosz.$on-secondary,
+  $on-surface: swierkosz.$on-surface,
+);
+
+@use "@material/typography" with (
+  $font-family: unquote("Roboto Mono, Roboto, Arial, Helvetica, sans-serif")
+);
+
+@use "@material/shape" with (
+  $small-component-radius: 4px,
+  $medium-component-radius: 16px,
+  $large-component-radius: 24px
+);
+
+@use "@material/card";
+
+@include theme.core-styles;
+@include typography.core-styles;
+@include card.core-styles;
+
+body {
+  margin: 192px;
+  padding: 0;
+  @include theme.property(background-color, background);
+  @include theme.property(color, swierkosz.$on-background);
+}
+
+#header {
+  .subheader {
+    margin: 0;
+  }
+
+  .header {
+    margin: 12px 0;
+  }
+}
