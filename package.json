@@ -20,6 +20,7 @@
     "build": "webpack --config webpack.prod.js"
   },
   "dependencies": {
+    "firebase": "^9.6.5",
     "material-components-web": "^13.0.0"
   },
   "devDependencies": {
