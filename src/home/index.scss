@@ -102,6 +102,19 @@ body {
       text-overflow: ellipsis;
     }
 
+    ul {
+      padding-left: 20px;
+      margin-top: 12px;
+
+      li {
+        overflow: visible;
+
+        &:not(:first-child) {
+          margin-top: .5em;
+        }
+      }
+    }
+
     &:first-child {
       padding-top: 16px;
     }
