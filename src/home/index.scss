@@ -164,6 +164,26 @@ body {
     @include theme.property(border-color, custom-properties.create(--mdc-theme-surface-variant, swierkosz.$on-surface-variant));
     @include theme.property(background, custom-properties.create(--mdc-theme-surface-variant, swierkosz.$surface-variant));
     @include theme.property(color, custom-properties.create(--mdc-theme-on-surface-variant, swierkosz.$on-surface-variant));
+
+    a {
+      display: inline-flex;
+      @include theme.property(background, secondary);
+      @include theme.property(color, on-secondary);
+      padding: 0 4px;
+      text-decoration: none;
+      line-height: 1.5rem;
+      border-radius: 4px;
+      font-weight: 400;
+
+      &:visited, &:hover {
+        @include theme.property(background, custom-properties.create(--mdc-theme-on-secondary-container, swierkosz.$on-secondary-container));
+        @include theme.property(color, on-secondary);
+      }
+
+      &:hover {
+        @include theme.property(color, custom-properties.create(--mdc-theme-secondary-container, swierkosz.$secondary-container));
+      }
+    }
   }
 
   &--outlined {
@@ -265,7 +285,7 @@ body {
 
   #projects {
     .mdc-layout-grid {
-      padding: 24px;
+      padding: 16px;
 
       .mdc-layout-grid__inner {
         @include layout-grid.inner(phone, 4, 0);
