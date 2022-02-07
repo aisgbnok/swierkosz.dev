@@ -18,7 +18,7 @@ module.exports = {
       template: './src/home/index.html',
       'meta': {
         'viewport': 'width=device-width, initial-scale=1',
-        'description': 'Simple timestamp calculator website',
+        'description': 'Anthony Swierkosz\'s website highlighting personal projects, experiences, and contact information.',
       }
     }),
   ],
