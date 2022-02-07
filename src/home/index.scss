@@ -21,6 +21,7 @@
   $large-component-radius: 24px
 );
 
+@use "@material/layout-grid";
 @use "@material/layout-grid/mdc-layout-grid";
 @use "@material/card";
 @use "@material/chips";
@@ -41,16 +42,20 @@ body {
 #header {
   padding: 192px;
 
-  .subheader {
-    margin: 0;
-  }
-
   .header {
     margin: 12px 0;
+  }
+
+  .subheader {
+    margin: 0;
   }
 }
 
 #projects {
+  .mdc-layout-grid {
+    padding: 24px 192px;
+  }
+
   .mdc-card {
     height: 100%;
   }
@@ -139,6 +144,7 @@ body {
 
   &__subhead {
     @include typography.typography(subtitle1);
+    font-weight: 500;
     margin: 4px 0 0;
   }
 
@@ -165,5 +171,105 @@ body {
     @include elevation.elevation(0);
     @include card.outline(swierkosz.$outline, 1px);
 
+  }
+}
+
+@media (min-width: 1240px) and (max-width: 1439px) {
+  #header {
+    padding: 96px 96px 192px;
+  }
+
+  #projects {
+    .mdc-layout-grid {
+      padding: 24px 96px;
+
+      .mdc-layout-grid__inner {
+        @include layout-grid.inner(desktop, 8, 0);
+      }
+    }
+  }
+}
+
+@media (min-width: 840px) and (max-width: 1239px) {
+  #header {
+    padding: 96px 96px 192px;
+  }
+
+  #projects {
+    .mdc-layout-grid {
+      padding: 24px 96px;
+
+      .mdc-layout-grid__inner {
+        @include layout-grid.inner(tablet, 8, 0);
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 839px) {
+  #header {
+    padding: 48px 48px 96px 48px;
+
+    .header {
+      @include typography.typography(headline2);
+      margin: 8px 0;
+    }
+
+    .subheader {
+      @include typography.typography(subtitle1);
+    }
+  }
+
+  #projects {
+    .mdc-layout-grid {
+      padding: 24px 48px;
+
+      .mdc-layout-grid__inner {
+        @include layout-grid.inner(tablet, 4, 0);
+      }
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  #header {
+    padding: 24px 16px 36px;
+
+    .header {
+      @include typography.typography(headline4);
+      margin: 4px 0;
+    }
+
+    .subheader {
+      @include typography.typography(subtitle2);
+      font-weight: 400;
+    }
+  }
+
+  .mdc-card {
+    &__headline {
+      @include typography.typography(headline5);
+    }
+
+    &__subhead {
+      @include typography.typography(subtitle2);
+      margin: 2px 0 0;
+    }
+
+    &__supporting-text {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      letter-spacing: 0.033rem;
+    }
+  }
+
+  #projects {
+    .mdc-layout-grid {
+      padding: 24px;
+
+      .mdc-layout-grid__inner {
+        @include layout-grid.inner(phone, 4, 0);
+      }
+    }
   }
 }
