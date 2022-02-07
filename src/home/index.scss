@@ -9,6 +9,7 @@
   $on-secondary: swierkosz.$on-secondary,
   $on-surface: swierkosz.$on-surface,
 );
+@use "@material/theme/custom-properties";
 
 @use "@material/typography" with (
   $font-family: unquote("Roboto Mono, Roboto, Arial, Helvetica, sans-serif")
@@ -20,25 +21,131 @@
   $large-component-radius: 24px
 );
 
+@use "@material/layout-grid/mdc-layout-grid";
 @use "@material/card";
+@use "@material/chips";
+@use "@material/chips/styles";
+@use "@material/elevation";
 
 @include theme.core-styles;
 @include typography.core-styles;
 @include card.core-styles;
 
 body {
-  margin: 192px;
+  margin: 0;
   padding: 0;
   @include theme.property(background-color, background);
   @include theme.property(color, swierkosz.$on-background);
 }
 
 #header {
+  padding: 192px;
   .subheader {
     margin: 0;
   }
 
   .header {
     margin: 12px 0;
+  }
+}
+
+#projects {
+
+}
+
+.mdc-evolution-chip-set {
+  @include chips.horizontal-space-between-chips(8px)
+}
+
+.mdc-evolution-chip {
+  @include elevation.elevation(0);
+  @include chips.outline-color(swierkosz.$outline);
+  @include chips.outline-width(1px);
+  @include chips.outline-style(solid);
+  @include chips.container-color(theme.$surface);
+  @include chips.shape-radius(8px);
+  @include chips.text-label-color(swierkosz.$on-surface-variant);
+
+  & &__action {
+    &--primary {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+  &__text-label {
+    font-weight: 500;
+  }
+}
+
+.mdc-card {
+  text-align: start;
+
+  &__header-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 13px 16px;
+  }
+
+  &__text-section {
+    padding-right: 16px;
+    padding-left: 16px;
+
+    * {
+      margin: 0;
+    }
+
+    &:first-child {
+      padding-top: 16px;
+    }
+
+    & + :not(:first-of-type) {
+      padding-top: 18px;
+    }
+
+    &:last-child {
+      padding-bottom: 16px;
+    }
+  }
+
+  &__actions {
+    padding: 16px;
+    justify-content: flex-end;
+  }
+
+  &__headline {
+    @include typography.typography(headline4);
+  }
+
+  &__subhead {
+    @include typography.typography(subtitle1);
+    margin: 4px 0 0;
+  }
+
+  &__supporting-text {
+    @include typography.typography(body2);
+
+    &:not(:last-of-type) {
+      margin-bottom: 1em;
+    }
+
+    + .postscript {
+      padding: 8px;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      font-weight: 500;
+      //letter-spacing: 0.033rem;
+      @include shape.radius(8px);
+      @include theme.property(background, custom-properties.create(--mdc-theme-surface-variant, swierkosz.$surface-variant));
+      @include theme.property(color, custom-properties.create(--mdc-theme-on-surface-variant, swierkosz.$on-surface-variant));
+    }
+  }
+
+  &--outlined {
+    @include card.fill-color(swierkosz.$surface);
+    @include elevation.elevation(0);
+    @include card.outline(swierkosz.$outline, 1px);
+
   }
 }
