@@ -192,6 +192,18 @@ body {
     @include card.outline(swierkosz.$outline, 1px);
 
   }
+
+  &--pinned {
+    @include card.outline(swierkosz.$primary, 4px);
+
+    .mdc-evolution-chip--pinned {
+      @include chips.outline-color(swierkosz.$on-secondary-container);
+      @include chips.outline-width(2px);
+      @include chips.container-color(swierkosz.$secondary-container);
+      @include chips.text-label-color(swierkosz.$on-secondary-container);
+      @include chips.icon-color(swierkosz.$on-secondary-container);
+    }
+  }
 }
 
 @media (min-width: 1240px) and (max-width: 1439px) {
