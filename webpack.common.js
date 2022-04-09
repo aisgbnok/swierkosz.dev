@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const entries = {
   index: './src/index.ts'
@@ -20,6 +21,12 @@ module.exports = {
         'viewport': 'width=device-width, initial-scale=1',
         'description': 'Anthony Swierkosz\'s website highlighting personal projects, experiences, and contact information.',
       }
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, 'src/assets/manifest.json'), to: "app.webmanifest" },
+        { from: path.resolve(__dirname, 'src/assets/icons'), to: "icons" },
+      ],
     }),
   ],
   module: {
