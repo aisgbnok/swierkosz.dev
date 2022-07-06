@@ -18,6 +18,15 @@
   padding: 96px;
 }
 
+.hero__background {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-image: url("../images/hero-static-background.webp");
+}
+
 .typography {
   margin: 0;
   line-height: 1.2;
