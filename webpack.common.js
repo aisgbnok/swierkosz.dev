@@ -2,12 +2,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const entries = {
-  index: './src/index.ts'
-}
-
 module.exports = {
-  entry: entries,
+  entry: {
+    home: {
+      import: './src/app/home/home.ts'
+    },
+    error: {
+      import: './src/app/404/404.ts'
+    }
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css",
@@ -15,7 +18,16 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Swierkosz',
-      template: './src/home/index.html',
+      template: './src/app/home/home.html',
+      'meta': {
+        'viewport': 'width=device-width, initial-scale=1',
+        'description': 'Anthony Swierkosz\'s website highlighting personal projects, experiences, and contact information.',
+      }
+    }),
+    new HtmlWebpackPlugin({
+      title: '404',
+      template: './src/app/404/404.html',
+      filename: '404.html',
       'meta': {
         'viewport': 'width=device-width, initial-scale=1',
         'description': 'Anthony Swierkosz\'s website highlighting personal projects, experiences, and contact information.',
