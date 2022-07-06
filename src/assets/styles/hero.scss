@@ -1,0 +1,39 @@
+.hero {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__content {
+  width: 100%;
+  margin: 84px;
+  border: 12px solid black;
+  border-radius: 72px 72px 0;
+  display: flex;
+}
+
+.hero__section {
+  flex: 1;
+  padding: 96px;
+}
+
+.typography {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.typography--hero {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 300;
+  font-size: 6.4375rem;
+  font-variation-settings: "wdth" 124, "wght" 300, "GRAD" 96, "XOPQ" 144, "YOPQ" 127, "YTAS" 774, "YTLC" 538, "YTUC" 736;
+}
+
+.typography--headline {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.33;
+  margin-top: 48px;
+}
