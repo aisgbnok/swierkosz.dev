@@ -1,0 +1,37 @@
+@use "src/assets/styles/swierkosz";
+
+@use "@material/theme" with (
+  $primary: swierkosz.$primary,
+  $secondary: swierkosz.$secondary,
+  $background: swierkosz.$background,
+  $surface: swierkosz.$surface,
+  $on-primary: swierkosz.$on-primary,
+  $on-secondary: swierkosz.$on-secondary,
+  $on-surface: swierkosz.$on-surface,
+);
+@use "@material/theme/custom-properties";
+
+@use "@material/typography" with (
+  $font-family: unquote("Roboto Mono, Roboto, Arial, Helvetica, sans-serif")
+);
+
+@use "@material/shape" with (
+  $small-component-radius: 4px,
+  $medium-component-radius: 16px,
+  $large-component-radius: 24px
+);
+
+@use "@material/button";
+@use "@material/button/styles";
+
+.mdc-button {
+  @include button.filled-accessible(swierkosz.$primary);
+  border-radius: 100px;
+  height: 40px;
+  padding: 10px 24px;
+
+  .mdc-button__label {
+    text-transform: none;
+  }
+}
+
